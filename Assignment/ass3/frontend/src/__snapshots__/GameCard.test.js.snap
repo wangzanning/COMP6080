@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameCard is matched with snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`GameCard is matched with snapshot 2`] = `ShallowWrapper {}`;

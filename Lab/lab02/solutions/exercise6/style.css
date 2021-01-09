@@ -1,0 +1,74 @@
+/* There is no perfect solution to this problem. There are a number of valid, decent solutions, and many of them might be quite dissimilar from yours. This code is one of many good solutions, and was written by Hoya Lee (z5226463), a student in 20T3 */
+
+* {
+  font-family: sans-serif;
+}
+.container {
+  width: 1896px;
+  height: 870px;
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  width: 100%;
+  height: 80%;
+  background-position: center;
+  background-size: cover;
+  background-image: url("assets/exercise_2_landing_page.jpg");
+}
+
+.content {
+  width: 40%;
+  height: 100%;
+  margin-left: 15%;
+}
+
+.content h1 {
+  color: white;
+  font-size: 6rem;
+}
+
+.btn {
+  background-color: #fcdb00;
+  font-size: 2rem;
+  width: 40%;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  padding: 15px 20px;
+  text-align: center;
+}
+svg {
+  margin-left: 40px;
+  margin-right: 20px;
+}
+.details {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.bottom {
+  height: 20%;
+  background-color: #fcdb00;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.btm-container {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.sml {
+  margin-top: 80px;
+}
+.big {
+  margin-top: 0px;
+  line-height: 150px;
+  height: 150px;
+  font-size: 72pt;
+  font-weight: bold;
+}
+sup {
+  font-size: 2rem;
+}

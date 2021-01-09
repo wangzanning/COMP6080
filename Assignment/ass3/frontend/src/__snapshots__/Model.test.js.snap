@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal is matched with snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Modal is matched with snapshot 2`] = `ShallowWrapper {}`;
+
+exports[`Modal is matched with snapshot 3`] = `ShallowWrapper {}`;

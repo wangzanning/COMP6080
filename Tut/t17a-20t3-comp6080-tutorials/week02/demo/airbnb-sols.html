@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- You can split this into a separate CSS file if you like -->
+    <style>
+        body {
+            padding: 8px;
+            font-size: 16px;
+
+            /* Airbnb load their own fonts onto the page so it's unlikely your browser will have an exact match for "Circular".
+                 * A very similar one is included in the solutions which you can use, but using the in-built browser sans-serif is fine. */
+            font-family: Circular, Arial, Helvetica, sans-serif;
+            color: rgb(72, 72, 72);
+
+            /* Pre-set the width to best match the photo */
+            width: 900px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 16px 0;
+        }
+
+        .login-buttons {
+            margin-top: 32px;
+            margin-bottom: 64px;
+            /* Hack to get rid of browser whitespace between inline buttons */
+            font-size: 0px;
+        }
+
+        .login-buttons button {
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+
+            /* Override native styling */
+            text-decoration: none;
+            box-shadow: none;
+            font: inherit;
+
+            /* Our own styling */
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 22px;
+            border-radius: 4px;
+            border: 2px solid rgb(0, 132, 137);
+            background: transparent;
+        }
+
+        .divider {
+            height: 1px;
+            width: 100%;
+            background: rgb(235, 235, 235);
+        }
+
+        h2 {
+            margin-top: 32px;
+            margin-bottom: 8px;
+            font-size: 24px;
+        }
+
+        .article-category {
+            float: left;
+            width: calc(100% / 3);
+        }
+
+        h3 {
+            margin-top: 24px;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        ul {
+            padding: 0;
+            list-style-type: none;
+            margin: 14px 32px 8px 0;
+        }
+
+        li {
+            padding: 8px 0;
+            line-height: 1.375em;
+        }
+
+        @font-face {
+            font-family: Circular;
+            src: url("@font-face/860c3ec7bbc5da3e97233ccecafe512e.woff");
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Log in to contact us</h1>
+    This will help us to quickly identify you and get you the right kind of help
+    <div class="login-buttons">
+        <button style="color: white; background: rgb(0, 132, 137);">Log In</button>
+        <button style="color: rgb(0, 132, 137);">Sign Up</button>
+    </div>
+    <div class="divider"></div>
+    <h2>These articles might help</h2>
+    <div class="article-container">
+        <div class="article-category">
+            <h3>Getting started</h3>
+            <ul>
+                <li>How do I create an account?</li>
+                <li>Airbnb Referral Program Terms and Conditions</li>
+                <li>How do I search for a place to stay?</li>
+                <li>How do I contact a host before booking a reservation?</li>
+            </ul>
+        </div>
+        <div class="article-category">
+            <h3>Getting started</h3>
+            <ul>
+                <li>How do I reset or change my password?</li>
+                <li>How do I edit, remove or add a payment method?</li>
+                <li>How do I edit or change my payout method?</li>
+                <li>How do I deactivate or delete my account?</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!--z5224151	ZANNING WANG-->
+<!--2020.10.15	Thursday-->
+<!--Lab05-exercise1-->
+<script type="text/javascript">
+    body = document.createElement("body");
+    document.children[0].appendChild(body);
+    div = document.createElement("div");
+    body.appendChild(div);
+    waitingNode = document.createElement("span");
+    waitingNode.innerText = "loading, Please wait...";
+    waitingNode.setAttribute('id','wait');
+    body.appendChild(waitingNode);
+
+    //print the data online
+    function printFunction(json){
+        var node = document.getElementsByTagName("div")[0];
+        for (attr in json){
+            localStorage.setItem(attr,json[attr]);
+            tempDiv = document.createElement("div");
+            tempDiv.style.margin = "20px";
+            node.appendChild(tempDiv);
+            span = document.createElement("span");
+            span.style.margin = "60px";
+            // span.style.display = "block"
+            span.appendChild(document.createTextNode(attr));
+            tempDiv.appendChild(span);
+            span = document.createElement("span");
+            span.style.margin = "60px";
+            span.appendChild(document.createTextNode(json[attr]));
+            tempDiv.appendChild(span);
+        }
+        console.log(json);
+        var tempDeleteNode = document.getElementById('wait');
+        tempDeleteNode.parentNode.removeChild(tempDeleteNode);
+    }
+
+    function showresult() {
+        return new Promise(()=>{
+            setTimeout(fetchResult,1000);
+        })
+    }
+
+    //print hte result offline
+    function printOffline(){
+        var node = document.getElementsByTagName("div")[0];
+        var key = ['name','reindeers','primary'];
+        for (var i=0;i<3;i++){
+            attr = key[i];
+            var value = localStorage.getItem(attr);
+            tempDiv = document.createElement("div");
+            tempDiv.style.margin = "20px";
+            node.appendChild(tempDiv);
+            span = document.createElement("span");
+            span.style.margin = "60px";
+            // span.style.display = "block"
+            span.appendChild(document.createTextNode(attr));
+            tempDiv.appendChild(span);
+            span = document.createElement("span");
+            span.style.margin = "60px";
+            span.appendChild(document.createTextNode(value));
+            tempDiv.appendChild(span);
+
+        }
+    }
+
+    //check can fetch successfully or show offline
+    function fetchResult(){
+        fetch("http://www.cse.unsw.edu.au/~cs680/20T3/data/package.json")
+            .then(res=> res.json()).then(printFunction).catch(res=>{
+                printOffline();
+                var tempDeleteNode = document.getElementById('wait');
+                tempDeleteNode.parentNode.removeChild(tempDeleteNode);
+                offlineNode = document.createElement("span");
+                offlineNode.innerText = "This data is not live";
+                body.appendChild(offlineNode);
+            });
+    }
+
+    //main function
+    async function main(){
+        await showresult();
+    }
+
+main();
+
+</script>

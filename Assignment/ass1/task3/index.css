@@ -1,0 +1,77 @@
+/*
+z5224151	ZANNING WANG
+2020.09.27	Sunday
+Assignment01-task3
+*/
+
+.container {
+	width: 432px;
+	height: 938px;
+}
+
+/*set the apperance of the logo*/
+#logo-part {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(0,136,187);
+	height: 18%;
+	margin: 0px;
+}
+
+#content-part {
+	background-color: rgb(19,35,76);
+	height: 82%;
+	margin: 0px;
+	padding: 50px 20px 20px 20px;
+}
+
+.row-content {
+	display: flex;
+	flex-direction: row;
+}
+
+.content {
+	margin: 10px;
+}
+
+#share-part{
+	margin-top: 20px;
+}
+
+#store-part {
+	margin: 20px 10px 10px 0px;
+}
+
+img.logo {
+	padding: 12px;
+}
+
+/*set the font of size*/
+span.title {
+	color: rgb(5,129,287);
+	font-size: 13px;
+}
+
+p a{
+	color: rgb(255,255,255);
+	font-size: 13px;
+}
+
+/*set the apperance of the share*/
+img.share {
+	width: 30px;
+	height: 30px;
+	margin: 3px;
+	filter: grayscale(100%);
+}
+
+/*set the apperance of the store*/
+img.store {
+	margin: 5px;
+}
+
+a {
+	text-decoration: none;
+}
+

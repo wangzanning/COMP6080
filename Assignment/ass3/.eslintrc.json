@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "standard"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+        "comma-dangle": ["error", {
+            "arrays": "always",
+            "objects": "always",
+            "imports": "always",
+            "exports": "always",
+            "functions": "never"
+        }],
+        "semi": ["error", "always"]
+    }
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d0af6a43-e12f-4e4d-9360-4f377a486f32" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/exercise5/exericise5-reactjs/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/exercise5/exericise5-reactjs/src/App.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1i6JfnL2970WZTtzIkk4TYKBLO0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0af6a43-e12f-4e4d-9360-4f377a486f32" name="Default Changelist" comment="" />
+      <created>1601222213645</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601222213645</updated>
+      <workItem from="1601222215562" duration="107000" />
+      <workItem from="1601222533029" duration="332000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="316" y="185" key="SettingsEditor" timestamp="1601222859076">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="316" y="185" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1601222859076" />
+  </component>
+</project>

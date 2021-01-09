@@ -1,0 +1,105 @@
+/* There is no perfect solution to this problem. There are a number of valid, decent solutions, and many of them might be quite dissimilar from yours. This code is one of many good solutions, and was written by Nathan Ellis (z5160405), a student in 20T3 */
+
+body {
+    background-color: #FBFAF6;
+    font-family: Garamond, serif;
+    height: 943px;
+    margin: 2.5% 0;
+    width: 1892px;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 2.5em;
+    letter-spacing: 0.05em;
+    margin: 0 10%;
+    text-transform: uppercase;
+}
+
+h2 {
+    letter-spacing: -0.05em;
+    margin-bottom: 0;
+}
+
+main {
+    display: flex;
+    margin: 0 auto;
+    width: 82.5%;
+}
+
+main > div {
+    flex: 1;
+    padding: 0 5%;
+}
+
+p {
+    font-size: 1.35em;
+}
+
+.archive {
+    font-style: italic;
+    color: #888888;
+}
+
+.arial {
+    font-family: Arial, sans-serif;
+}
+
+.author {
+    font-style: italic;
+    font-size: 12pt;
+    margin-bottom: 0;
+}
+
+.author-name {
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.boxed {
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-size: 10pt;
+    margin-bottom: 10pt;
+}
+
+.info-summary {
+    margin-top: 10px;
+}
+
+.left {
+    align-items: center;
+    border-right: #CCCCCC solid 1px;
+    text-align: center;
+}
+
+.left > img {
+    height: auto;
+    width: 100%;
+}
+
+.spaced {
+    display: flex;
+    margin-bottom: 10pt;
+    justify-content: space-between;
+}
+
+.subtitle {
+    color: #E95A36;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.summary {
+    padding: 0 9.75%;
+}
+
+.underline {
+    border-bottom: 1px solid #CCCCCC;
+}

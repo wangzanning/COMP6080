@@ -1,0 +1,41 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 5em;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+    text-align: center;
+}
+
+h1:hover {
+    color: #454545;
+    cursor: pointer;
+}
+
+img {
+    width: 30em;
+    height: 20em;
+    object-fit: cover;
+}
+
+.cities-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cities-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cities-title {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+}

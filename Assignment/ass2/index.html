@@ -1,0 +1,136 @@
+<!--z5224151	ZANNING WANG-->
+<!--2020.10.11	Sunday-->
+<!--Assignment02-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ass02</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
+        <script type="text/javascript" src="src/login.js"></script>
+        <!-- import bootstrap -->
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </head>
+<body class="text-center">
+    <header class="banner">
+        <br>
+    <!--  <h1>Assignment 02</h1>-->
+    </header>
+    <main role="main" class="container-main ">
+        <!-- login webpage-->
+        <form name="loginIn"  id="loginForm">
+            <fieldset>
+                <h1>Welcome to my APP, Please Login</h1>
+                User_Name <input type="text" name="username" size="30" oninput="checkName(loginIn)"><br><span id="nameHint"></span><br>
+                Password <input type="password" name="password" size="30" oninput="checkPass(loginIn)"><br><span id="passHint"></span><br>
+                <input type="button" name="submit" value="login in" class="btn btn-info" onclick="submitLoginButton()">
+                <input type="button" name="signUp" value="sign-up" class="btn btn-info" onclick="showignUpButton()">
+            </fieldset>
+        </form>
+        <!-- signup webpage-->
+        <form name="signUp" id="signForm">
+            <fieldset>
+                <h1>Please Sign up</h1>
+                User_Name <input type="text" name="usernameSign" size="30" oninput="checkNameSign(signUp)"><br><span id="nameHintSign"></span><br>
+                Password <input type="password" name="passwordSign" size="30" oninput="checkPassSign(signUp)"><br><span id="passHintSign"></span><br>
+                Confirm password <input type="password" name="confirmPassword" size="30" oninput="checkConfirm()"><br><span id="confirmPass"></span><br>
+                E-mail <input type="email" name="emailSign" size="30" ><br><span id="emailSign"></span><br>
+                Name <input type="text" name="nameSign" size="30" oninput="checkNickName(signUp)"><br><span id="necknameSign"></span><br>
+                <input type="button" name="submitSignup" value="submit" onclick="submitSignButton()" class="btn btn-info">
+                <input type="button" name="cancel" value="cancel" onclick="cancelSignUp()" class="btn btn-info">
+            </fieldset>
+        </form>
+        <!--change my personal profile -->
+        <form name="changeProfile" id="changeProfileForm">
+            <fieldset>
+                <h1>Please change your profile</h1>
+                User_Name <input type="text" name="usernameChange" size="30" oninput="checkNameChange(changeProfile)"><span id="nameHintChange"></span><br>
+                Password <input type="password" name="passwordChange" size="30" oninput="checkPassChange(changeProfile)"><span id="passHintChange"></span><br>
+                Confirm password <input type="password" name="confirmPasswordChange" size="30" oninput="checkConfirmChange()"><span id="confirmPassChange"></span><br>
+                E-mail <input type="email" name="emailChange" size="30" ><span id="emailChange"></span><br>
+                <input type="button" name="submitChange" value="submit" onclick="submitChangeButton()" class="btn btn-info">
+                <input type="button" name="cancel" value="cancel" onclick="cancelChangeProfile()" class="btn btn-info">
+            </fieldset>
+        </form>
+        <!-- user detail webpage-->
+        <div id="user-detail">
+            <input type="button" name="cancel" value="cancel" onclick="cancelCheckDetail()" class="btn btn-info pull-right">
+            <input type="button" name="changeProfile" value="Change My Profile" onclick="changeMyProfile()" id="changeProfileButton" class="changeProfile btn btn-info pull-left">
+            <div id="user-name">123</div>
+            <div id="user-neckName"></div>
+            <div id="user-id"></div>
+            <div id="user-email"></div>
+            <div id="user-following"></div>
+            <div id="user-followed-number"></div>
+            <div id="user-post"></div>
+        </div>
+        <!-- feed page when user login -->
+        <div id="main-feed">
+            <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand">Tools bar</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <input type="button" name="makeNewPost" value="Make New Post!" onclick="makeNewPost()" class="btn btn-info tools">
+                            </li>
+                            <li>
+                                <input type="button" name="showMyProfile" value="My Profile" onclick="showMyProfile()" class="btn btn-info tools">
+                            </li>
+                            <li>
+                                <input type="button" name="followNewUser" value="Follow New User" onclick="followNewUser()" class="btn btn-info tools">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="new-follow">
+                <textarea id="follow-text" rows="1" cols="8"></textarea>
+                <input type="button" name="newFollowButton" value="SEND" onclick="followUserButton()" class="btn btn-info">
+            </div>
+        </div>
+        <div id="new-post">
+            <input id="filePost" type="file" name="postFile" value="Browse" class="btn btn-info">
+            <textarea id="new-post-text" rows="10" cols="50"></textarea>
+            <input type="button" name="sendNewPost" value="SEND!" onclick="sendNewPost()" class="btn btn-info">
+            <input type="button" name="cancelNewPost" value="CANCEL" onclick="cancelNewPost()" class="btn btn-info">
+        </div>
+        <!-- Login In part -->
+        <script type="text/javascript" src="src/login.js" id="loginJs"></script>
+        <!-- sign up part -->
+        <script type="text/javascript" src="src/signup.js"></script>
+        <!-- show feed part -->
+        <script type="text/javascript" src="src/showfeed.js"></script>
+        <!-- button: like, unlike, comment -->
+        <script type="text/javascript" src="src/button.js"></script>
+        <!--change user profile -->
+        <script type="text/javascript" src="src/changeProfile.js"></script>
+        <!--  show user profile -->
+        <script type="text/javascript" src="src/profile.js"></script>
+
+        <script type="text/javascript" src="src/main.js"></script>
+    </main>
+    <footer>
+        <p>&copy; z5224151 Zanning Wang</p>
+    </footer>
+<!--    <script type="module" src="src/main.js"></script>-->
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,67 @@
+/*
+z5224151	ZANNING WANG
+2020.09.27	Sunday
+Assignment01-task2
+*/
+
+/*set the contianer with grid*/
+.container { 
+	display: grid;
+	height: 787px;
+	width: 787px;
+	padding: 20px;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr; 
+	grid-gap: 20px 20px;
+	background-color: rgb(179,163,150);
+	border-radius: 10px;
+}
+
+/*set the attribute for all color box*/
+.number-2,.number-4,.number-8,.number-16,.number-64,.number-128,.number-none {
+	font-size: 80px;
+	text-align: center;
+	padding-top: 48px;
+	font-family: "Arial";
+	font-weight: 800;
+	border-radius: 10px;
+}
+
+.number-2,.number-4 {
+	color: rgb(108,99,90);
+}
+
+/*set up each color*/
+.number-8,.number-16,.number-64,.number-128 {
+	color: rgb(248,244,240);
+}
+
+.number-2 {
+	background-color: rgb(236,224,213);
+}
+
+.number-4 {
+	background-color: rgb(234,219,193);
+}
+
+.number-8 {
+	background-color: rgb(240,167,110);
+}
+
+.number-16 {
+	background-color: rgb(244,138,88);
+}
+
+.number-64 {
+	background-color: rgb(245,83,52);
+}
+
+.number-128 {
+	background-color: rgb(234,200,103);
+}
+
+.number-none {
+	background-color: rgb(196,185,171);
+}
+
+

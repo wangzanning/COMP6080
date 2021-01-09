@@ -1,0 +1,203 @@
+/*z5224151	ZANNING WANG*/
+/*2020.10.11	Sunday */
+/* Assignment02*/
+/* base styles, feel free to edit */
+html, body {
+    margin: 0;
+    padding: 0;
+
+    height: 100%;
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+footer {
+    border-top: 1px solid rgba(0,0,0,.0975);
+    padding: 10px;
+    min-height: 60px;
+    text-align: right;
+}
+
+.banner > *, footer > * {
+    margin: 10px 25px;
+}
+
+.nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-item {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: auto;
+    padding: 5px;
+    display: inline;
+    list-style-type: none;
+}
+
+/* Add your styles here */
+#loginForm, #signForm, #changeProfile{
+    font-family: "Apple LiSung";
+    /*background-color: bisque;*/
+    padding: 30px;
+}
+
+.tools{
+    margin: 5px;
+}
+
+body {
+    background-image: url("background.jpg");
+    background-repeat: repeat;
+    /*background-size: cover;*/
+    background-size: 100% 100%;
+
+}
+#user-post {
+    width: 50%;
+    margin: auto;
+    font-family: "Apple LiSung";
+}
+
+form#signForm {
+    display: none;
+}
+div#main-feed {
+    display: none;
+    width: 50%;
+    margin: auto;
+    font-family: "Apple LiSung";
+
+}
+
+main {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.figureCard {
+    margin: 50px;
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    border: 2px solid bisque;
+    border-radius: 30px;
+    background-color: white;
+
+}
+
+img.thumbPic {
+    align-items: center;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50px;
+    float: left;
+}
+
+img.srcPic {
+    width: 90%;
+    height: auto;
+    border-radius: 30px;
+    align-items: center;
+    margin-top: 20px;
+    border: 3px solid bisque;
+}
+
+span.author {
+    font-family: ".SF NS Mono";
+    font-size: 4vw;
+    color: dimgrey;
+    padding: 0 0 5px 20px;
+    float: left;
+}
+
+input.likeButton {
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.likePart {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+h3.descriptionText {
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: bisque;
+    font-size: 3vw;
+}
+
+div.topPart {
+    margin-bottom: 40px;
+
+}
+
+div#user-detail {
+    display: none;
+    font-size: 30px;
+}
+
+.commentPart {
+    border: 2px solid bisque;
+    border-radius: 15px;
+}
+#new-follow,#new-post,#changeProfileForm,#changeProfileButton{
+    display: none;
+}
+
+#new-follow {
+    display: none;
+}
+
+.likePart {
+    text-align: center;
+    font-size: 15px;
+    margin: auto;
+}
+
+span {
+    font-size: 25px;
+    color: bisque;
+}
+
+.changeProfile{
+    text-align: center;
+    margin: auto;
+}
+
+.like-text {
+    width: 90%;
+    font-size: 3vw;
+    color: rgb(80,184,217);
+    margin-right: 100px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.commentSend {
+    border: 2px solid bisque;
+    border-radius: 40px;
+    width: 90%;
+    margin: 10px;
+}
+
+.commentSendButton {
+    padding-bottom: 100px;
+}
+
+pop {
+    margin: 500px;
+    width: 500px;
+    height: 200px;
+}
+
+header{
+    margin-top: 50px;
+}
+
+.pro-button {
+    margin: 5px;
+}

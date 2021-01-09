@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.product {
+  display: flex;
+  flex-direction: row;
+}
+
+.product .image {
+  flex: 7;
+}
+
+.image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product .info {
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.info .title {
+  margin-bottom: 0;
+}
+
+.info .price {
+  color: #777;
+  margin: 10px 10% 40px 10%;
+}
+
+.info .description {
+  font-size: .8rem;
+  margin: 5px 10%;
+}
+
+.info .recommended {
+  font-size: .8rem;
+  margin: 30px 10% 8px 10%;
+}
+
+.info .cart {
+  margin-top: 30px;
+}
+
+.info .add-to-cart {
+  border: none;
+  padding: 8px;
+  margin-left: 20px;
+}
+
+.rating .circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #CCC;
+  display: inline-block;
+  margin: 1px;
+}
+
+.rating .circle.filled {
+  background-color: gold;
+}
+
+.stepper {
+  display: inline-block;
+}
+
+.stepper .minus, .stepper .plus {
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.stepper .value {
+  margin: 0 10px;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Form</title>
+</head>
+
+<body>
+    <form action="" method="get">
+        <ul>
+            <li><label>First Name: <input type="text" name="first-name" id="first-name" /></label></li>
+            <li><label>Email: <input type="text" name="email" id="email"></label></li>
+            <input disabled type="submit">
+        </ul>
+    </form>
+    <script type="text/javascript">
+        const firstName = document.getElementById("first-name");
+        const email = document.getElementById("email");
+
+        firstName.addEventListener("keyup", checkSubmit);
+        email.addEventListener("keyup", checkSubmit);
+    </script>
+</body>
+
+</html>

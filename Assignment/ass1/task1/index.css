@@ -1,0 +1,45 @@
+/* 
+z5224151	ZANNING WANG
+2020.09.27	Sunday
+Assignment01-task1 
+*/
+
+.container {
+	/*height: 669px;
+	width: 1011px;*/
+	border:1px solid rgb(229,229,229);
+	padding: 30px;
+}
+
+.content {
+	margin: 20px 0 20px 10px;
+}
+
+img#picture-down {
+	margin-top: 15px;
+	width: 243px;
+	height: 181px;
+}
+
+img#giraffe {
+	float: right;
+	border: 1px solid rgb(229,229,229);
+	height: 200px;
+	width: 200px;
+	border-radius: 120px;
+}
+
+/*change the apperance of the font*/
+span.attribute {
+	font-family: "Gill Sans MT";
+	font-weight: 600;
+	font-size: 27px;
+	letter-spacing: 3px;
+}
+
+span.value {
+	font-family: "Century Gothic";
+	font-weight: 400;
+	font-size: 32px;
+	margin-left: 5px;
+}

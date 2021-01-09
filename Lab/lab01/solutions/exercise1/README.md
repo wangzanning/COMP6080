@@ -1,0 +1,1 @@
+These files are here and essentially give away an answer for lab01 if you need the help. Since this is a new course and we haven't fleshed out resources, consider it a little helping hand and an easy introduction into the course.

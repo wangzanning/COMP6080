@@ -1,0 +1,96 @@
+<!--z5224151	ZANNING WANG-->
+<!--2020.10.15	Thursday-->
+<!--Lab05-exercise3-->
+<script type="text/javascript">
+    //add the body node in the html
+    body = document.createElement("body");
+    document.children[0].appendChild(body);
+    div = document.createElement("div");
+    body.appendChild(div);
+    waitingNode = document.createElement("span");
+    waitingNode.innerText = "loading, Please wait...";
+    waitingNode.setAttribute('id','wait');
+    body.appendChild(waitingNode);
+    tag = false;
+    //print the data online
+    function printFunction(json){
+        var node = document.getElementsByTagName("div")[0];
+        for (attr in json){
+            localStorage.setItem(attr,json[attr]);
+            tempDiv = document.createElement("div");
+            tempDiv.style.margin = "20px";
+            node.appendChild(tempDiv);
+            span = document.createElement("span");
+            span.style.margin = "60px";
+            span.appendChild(document.createTextNode(attr));
+            tempDiv.appendChild(span);
+            span = document.createElement("span");
+            span.style.margin = "60px";
+            span.appendChild(document.createTextNode(json[attr]));
+            tempDiv.appendChild(span);
+        }
+        console.log(json);
+        var tempDeleteNode = document.getElementById('wait');
+        tempDeleteNode.parentNode.removeChild(tempDeleteNode);
+    }
+    //set timeout in this function to simulate the waiting process
+    function showresult() {
+        return new Promise(res=>{
+            setTimeout(fetchResult,1000);
+        });
+
+    }
+
+    //print the result offline
+    function printOffline(){
+        var node = document.getElementsByTagName("div")[0];
+        var key = ['name','reindeers','primary'];
+        for (var i=0;i<3;i++){
+            attr = key[i];
+            var value = localStorage.getItem(attr);
+            tempDiv = document.createElement("div");
+            tempDiv.style.margin = "20px";
+            node.appendChild(tempDiv);
+            span = document.createElement("span");
+            span.style.margin = "60px";
+            span.appendChild(document.createTextNode(attr));
+            tempDiv.appendChild(span);
+            span = document.createElement("span");
+            span.style.margin = "60px";
+            span.appendChild(document.createTextNode(value));
+            tempDiv.appendChild(span);
+        }
+    }
+
+    //show in XMLHTTP request of fetch
+    function fetchResult() {
+        console.log(123);
+        var dataRequest = new XMLHttpRequest();
+        //print online
+        dataRequest.onreadystatechange = function () {
+            if (dataRequest.readyState === 4 && dataRequest.status === 200) {
+                var reply = JSON.parse(dataRequest.responseText);
+                printFunction(reply);
+                console.log(reply);
+                tag = true;
+            }
+            //print offline
+            if (dataRequest.readyState ===4 && dataRequest.status === 0){
+                printOffline();
+                offlineNode = document.createElement("span");
+                offlineNode.innerText = "This data is not live";
+                body.appendChild(offlineNode);
+                var tempDeleteNode = document.getElementById('wait');
+                tempDeleteNode.parentNode.removeChild(tempDeleteNode);
+            }
+        }
+        dataRequest.open('GET', 'http://www.cse.unsw.edu.au/~cs6080/20T3/data/package.json', true);
+        dataRequest.send();
+    }
+    //main function to show on the HTML
+    function main(){
+        showresult();
+    }
+
+    main();
+</script>

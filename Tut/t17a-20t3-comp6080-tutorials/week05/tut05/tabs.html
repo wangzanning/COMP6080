@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <style>
+        body { font-size: 20pt; }
+
+        .hide, #popup { display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="" id="homeButton">Home</a>
+                    <a href="" id="aboutButton">About</a>
+                    <a href="" id="newsButton">News</a>
+                    <a href="" id="articlesButton">Articles</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="homePage">This is the home page</div>
+        <div id="aboutPage" class="hide">This is the about page</div>
+        <div id="newsPage" class="hide">This is the news page</div>
+        <div id="articlesPage" class="hide">This is the articles page</div>
+    </main>
+
+    <div id="popup">
+        <form action="">
+            <ul>
+                <li><label for="">Email: <input type="email"></label></li>
+                <li><label for="">Name: <input type="text"></label></li>
+                <button>Close</button>
+                <button type="submit">Submit</button>
+            </ul>
+        </form>
+    </div>
+
+    <footer>
+        <a href="">Contact Us</a>
+    </footer>
+
+    <script>
+        const pages = ["home", "about", "news", "articles"];
+
+        pages.forEach(page => {
+            const setPage = event => {
+                event.preventDefault();
+                
+                // Hide everything.
+                pages.map(page => document.getElementById(`${page}Page`).style.display = 'none');
+                
+                // Make the correct page visible.
+                document.getElementById(`${page}Page`).style.display = 'block';
+            };
+
+            document.getElementById(`${page}Button`).addEventListener('click', setPage);
+        });
+
+        document.getElementById('contactUs').addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('header').style.display = 'none';
+            document.getElementById('page').style.display = 'none';
+            document.getElementById('footer').style.display = 'none';
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        });
+        
+        document.getElementById('closePopup').addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('header').style.display = 'block';
+            document.getElementById('page').style.display = 'block';
+            document.getElementById('footer').style.display = 'block';
+            document.getElementById('popup').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

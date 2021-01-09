@@ -1,0 +1,97 @@
+/* There is no perfect solution to this problem. There are a number of valid, decent solutions, and many of them might be quite dissimilar from yours. This code is one of many good solutions, and was written by Hoya Lee (z5226463), a student in 20T3 */
+
+* {
+  font-family: serif;
+}
+.container {
+  display: flex;
+  justify-content: centers;
+  width: 1692px;
+  height: 943px;
+  padding: 0 100px;
+  background-color: #fbfaf6;
+}
+.content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.orange {
+  color: rgb(255, 86, 8);
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.ocean {
+  font-size: 1rem;
+  margin: 5px;
+}
+.left-text {
+  width: 80%;
+}
+.left {
+  align-items: center;
+}
+.text {
+  text-align: left;
+  margin-left: 70px;
+  margin-top: 30px;
+}
+.text-item h3 {
+  font-size: 20pt;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.author {
+  font-style: italic;
+}
+.author b {
+  font-style: normal;
+}
+h1 {
+  margin: 0 70px;
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+p {
+  font-size: 16pt;
+  line-height: 2rem;
+}
+.center {
+  height: 883px;
+  width: 3px;
+  background-color: gainsboro;
+  margin: 30px 20px;
+}
+.top-bar {
+  position: relative;
+}
+.digest {
+  float: left;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  padding: 0 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.archive {
+  float: right;
+  color: gray;
+  font-style: italic;
+}
+img {
+  width: 80%;
+}
+u {
+  text-decoration-color: rgb(165, 164, 164);
+}
+
+.text-item p {
+  font-size: 1.15rem;
+}

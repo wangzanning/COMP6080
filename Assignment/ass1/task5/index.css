@@ -1,0 +1,327 @@
+/*
+z5224151	ZANNING WANG
+2020.09.29	Tuesday
+Assignment01-task5
+*/
+/*set the fundunmental apperance for both big and small screen*/
+* {
+	font-family: "Arial";
+}
+
+a {
+	text-decoration: none;
+}
+
+#join-button {
+	border: rgb(1,1,1) solid 3px;
+	width: 100px;
+	height: 30px;
+	color: rgb(1,1,1);
+}
+	
+#sign-button {
+	background-color: rgb(229,76,136);
+	height: 30px;
+	width: 80px;
+	color: rgb(255,255,255);
+}
+
+/*button under title*/
+#find-friend,#join-now {	
+	color: rgb(1,1,1);
+	border-radius: 5px;
+	font-size: 13px;
+	text-align: center;
+	padding-top: 8px;
+	float: right;
+	margin: 10px;
+	font-weight: 800;
+}
+#join-now {
+	border: rgb(1,1,1) solid 3px;
+	width: 100px;
+	height: 30px;
+	color: rgb(1,1,1);
+}
+
+#find-friend {
+	background-color: rgb(229,76,136);
+	height: 35px;
+	width: 150px;
+	color: rgb(255,255,255);
+}
+
+/*set the hover function*/
+#find-friend:hover {
+	opacity: 0.7;
+}
+
+#join-now:hover {
+	border: rgb(255,255,255) solid 3px;
+	color: rgb(255,255,255);
+	background-color: rgb(1,1,1);
+}
+
+/*set the apperance for big screen*/
+@media screen and (max-width: 3200px) {
+	.container {
+		width: 1696px;
+		height: 1236px;
+	}
+
+	#top-part {
+		height: 60%;
+		width: 100%;
+	}
+	#bottom-part {
+		height: 40%;
+		width: 100%;
+		background-color: rgb(235,245,245);
+		margin: auto;
+	}
+
+	/*set the apperance of the top bar*/
+	span a {
+		display: inline-block;
+		float: left;
+		padding: 18px;
+		color: rgb(1,1,1);
+	}
+
+	#function-bar {
+		margin: 20px;
+	}
+
+	#function-button {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: center;
+		margin: 40px 150px 100px 0;
+	}
+
+	#join-button,#sign-button {	
+		color: rgb(1,1,1);
+		border-radius: 5px;
+		font-size: 11px;
+		text-align: center;
+		padding-top: 8px;
+		float: right;
+		margin: 10px;
+		font-weight: 800;
+	}
+
+	#join-button:hover{
+		border: rgb(255,255,255) solid 3px;
+		color: rgb(255,255,255);
+		background-color: rgb(1,1,1);
+	}
+	#sign-button:hover{
+		opacity: 0.7;
+	} 
+	
+	/*set the apperance of the title and subtitle*/
+	#title {
+		text-align: center;
+		width: 800px;
+		height: 180px;
+		font-size: 60px;
+		margin: auto;
+		font-weight: 800;
+	}
+
+	#subtitle {
+		text-align: center;
+		width: 620px;
+		height: 80px;
+		font-size: 20px;
+		margin: auto;
+		font-weight: 400;
+		color: rgb(190,190,190);
+	}
+
+	/*set the apperance of the button under title*/
+	#two-more-button {
+		display: flex;
+		flex-direction: row;
+		text-align: center;	
+	}
+
+	/*make the button center*/
+	#center {
+		display: flex;
+		width: 100%;
+		margin:auto;
+		justify-content: center;
+	}
+
+	img#left {
+		width: 350px;
+		height: 500px;
+		float: left;
+		position: relative;
+		top: -275px;
+	}
+
+	img#right {
+		width: 350px;
+		height: 500px;
+		float: right;
+		position: relative;
+		top: -275px;
+	}
+
+	/*bottom part*/
+	span#how {
+		font-size: 40px;
+		font-weight: 900;
+		display: flex;
+		justify-content: center;
+		padding-top: 70px;
+		
+	}
+
+	/*person-box in the bottom part*/
+	#four-person {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;		
+	}
+
+	/*set the apperance in each box*/
+	.person-box {
+		background-color: rgb(255,255,255);
+		width: 470px;
+		height: 300px;
+		margin: 20px;
+		text-align: center;
+		box-shadow: 5px 5px 5px #888888;
+	}
+
+	img.head-portrait {
+		width: 70px;
+		height: 70px;
+		border-radius: 40px;
+		margin: 30px 0 0 0;
+	}
+
+	p.job {
+		color: rgb(229,76,136);
+		font-weight: 900;
+	}
+
+	/*set the apperance of the tag in person-box*/
+	span.tag {
+		background-color: rgb(235,245,245);
+		color: 	rgb(83,133,134);
+		display: inline-block;
+		border-radius: 20px;
+		height: 20px;
+		width: auto;
+		margin: 3px;
+		padding: 3px 10px 3px 10px;
+		font-size: 8px;
+		font-weight: 800;
+		-webkit-transform: scale(0.4)；
+		margin: 10px;
+		display: inline-block;
+	}
+
+	/*set the position unmoved*/
+	#women-float {
+		position: relative;
+	}
+
+	img#women {	
+		margin: 0px;
+		position: absolute;
+		left: 490px;
+		bottom: -70px;
+	}
+}
+
+/*set the apperance for small screen*/
+@media screen and (max-width: 1000px) {
+	.container {
+		width: 595px;
+		height: 1094px;
+	}
+
+	/*remove the button in the top bar*/
+	#function-button {
+		display: none;
+	}
+
+	/*change the apperance of the title*/
+	#title {
+		padding-top: 50px;
+		font-size: 30px;
+		width: 400px;
+	}
+
+	#subtitle {
+		width: 500px;
+		font-size: 18px;
+		position: relative;
+		top: -70px;
+	}
+
+	/*change the outlook of top-part and bottom-part*/
+	#top-part {
+		height: 30%;
+		width: 100%;
+	}
+	#bottom-part {
+		height: 70%;
+		width: 100%;
+	}
+
+	/*change hte apperance of the button under title*/
+	#two-more-button {
+		position: relative;
+		top: -80px;
+	}
+
+	/*minisize the background photoes*/
+	img#left {
+		width: 130px;
+		height: 170px;
+		float: left;
+		position: relative;
+		top: -215px;
+	}
+
+	img#right {
+		width: 130px;
+		height: 180px;
+		float: right;
+		position: relative;
+		top: -225px;
+	}
+
+	/*remove women sitting on the box*/
+	img#women {
+		display: none;
+	}
+
+	/*change the apperance of "how..."*/
+	span#how {
+		font-size: 25px;
+		font-weight: 600;
+	}
+
+	/*chnange the apperance of the box size*/
+	.person-box {
+		width: 230px;
+		height: 270px;
+	}
+
+	#four-person {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+		position: relative;
+		bottom: 100px;
+	}
+}

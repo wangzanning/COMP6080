@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background-color: lightblue;
+        }
+
+        #building {
+            position: absolute;
+            width: 300px;
+            height: 600px;
+            left: 100px;
+            bottom: 0;
+            background-color: grey;
+        }
+
+        .window {
+            background-color: lightgrey;
+        }
+
+        body[night] {
+            background-image: linear-gradient(#6a0d83, #ee5d6c, #eeaf61);
+        }
+
+        body[night] #building {
+            background-color: black;
+        }
+
+        body[night] .window {
+            background-color: #f7d624;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="building"></div>
+    <script src="building.js"></script>
+</body>
+
+</html>

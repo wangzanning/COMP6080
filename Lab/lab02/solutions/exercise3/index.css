@@ -1,0 +1,107 @@
+/* There is no perfect solution to this problem. There are a number of valid, decent solutions, and many of them might be quite dissimilar from yours. This code is one of many good solutions, and was written by Nathan Ellis (z5160405), a student in 20T3 */
+
+body {
+    background-color: #F7F6F1;
+    color: #E86B01;
+    font-family: sans-serif;
+    height: 937px;
+    width: 1907px;
+    margin: 0;
+}
+
+h1 {
+    font-size: 7em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+main {
+    display: flex;
+}
+
+p {
+    margin: 0;
+}
+
+.info-box {
+    padding-left: 50px;
+    padding-right: 30px;
+    border-bottom: #E86B01 solid 2px;
+}
+
+.left {
+    flex: 4;
+    padding: 50px;
+    height: 650px;
+    background-color: #E86B01;
+}
+
+.menu-icon {
+    font-size: 50pt;
+    text-align: right;
+    margin: auto;
+    padding: 0px 30px;
+    transform: scale(1, 0.5);
+}
+
+.navbar {
+    border-bottom: #E86B01 solid 2px;
+    width: 100%;
+}
+
+.right {
+    flex: 3;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-left {
+    display: flex;
+    flex: 3;
+    align-items: baseline;
+}
+
+.stat-left > h1 {
+    margin: 0;
+}
+
+.stat-left > .unit {
+    font-size: 30pt;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.stat-right {
+    flex: 1;
+    position: relative;
+}
+
+.stat-right > p {
+    text-align: right;
+    font-size: 24pt;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 20px;
+}
+
+.square {
+    font-size: 1.5em;
+    padding: 10px;
+}
+
+.squares {
+    display: flex;
+}
+
+.white {
+    color: white;
+}

@@ -1,0 +1,161 @@
+/*
+z5224151	ZANNING WANG
+2020.09.22 Tuesday
+Lab02-exercise3
+rgb(228,95,3)
+*/
+
+.container {
+	width: 1907px;
+	height: 937px;
+	background-color: rgb(246,245,239);
+}
+
+/*set the apperance of top part*/
+.top-block {
+	height: 80px;
+}
+
+.bottom-block {
+	display: flex;
+	flex-direction: row;
+}
+
+/*the content show in the left side*/
+.left-block {
+	display: flex;
+	flex: 7;
+	height: 850px;
+	background-color: rgb(228,95,3);
+}
+
+/*the content show in the right side*/
+.right-block {
+	display: flex;
+	flex-direction: column;
+	flex: 5;
+	height: 850px;
+	background-color: rgb(246,245,239); 
+}
+
+/*set the apperance of seperate line*/
+.seperate-line {
+	float: top;
+	margin-left: 0px;
+	margin-bottom: 5px;
+	height: 1px;
+	width: 850px;
+	background: rgb(228,95,3);
+}
+
+.content {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+/*set the apperance of top menu botton*/
+.menu-block {
+	margin-right: 40px;
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+	float: right;
+}
+
+.line {
+	margin-right: 20px;
+	height: 1px;
+	width: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background: rgb(228,95,3);
+}
+
+.line-bold {
+	margin-right: 20px;
+	height: 3px;
+	width: 40px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background: rgb(228,95,3);
+}
+
+/*set the apperance of little box*/
+.three-little-box{
+	display: flex;
+	position: relative;
+	right: 850px;
+	top: 60%;
+}
+
+.little-box {
+	margin-top: 200px;
+	height: 10px;
+	width: 10px;
+	margin: 10px;
+	border: 0.5px solid rgb(255,255,255);
+	background-color: rgb(228,95,3);
+}
+
+.little-box-special {
+	margin-top: 200px;
+	height: 13px;
+	width: 13px;
+	margin: 10px;
+	background-color: rgb(255,255,255);
+}
+
+* {
+	font-family: "sans-serif";
+	color: rgb(228,95,3);
+}
+
+/*set the apperance of left part content*/
+span.left-content {
+	font-weight: 800;
+	font-size: 85px;
+	color: rgb(246,245,239) !important;
+	margin: 200px 100px 40px 100px;
+}
+
+/*set the apperance of the title*/
+h1 {
+	font-weight: 600;
+	font-size: 40px;
+	margin-left: 40px;
+	margin-bottom: 70px;
+}
+
+/*set the apperance of subtitle*/
+span.subtitle {
+	font-weight: 600;
+	font-size: 25px;
+	margin-left: 40px;
+}
+
+/*set the apperance of figure in right part*/
+span.figure {
+	font-weight: 800;
+	font-size: 100px;
+	margin-left: 50px;
+	line-height: 150px;
+}
+
+/*set the apperance of "of..."*/
+span.of-part {
+	float: right;
+	margin: 30px 40px 10px 0px;
+	font-weight: 500;
+	font-size: 30px;
+	text-align: right;
+}
+
+/*set the apperance of the units*/
+span.units {
+	font-weight: 600;
+	font-size: 50px;
+}
+
+a {
+	text-decoration: none;
+}

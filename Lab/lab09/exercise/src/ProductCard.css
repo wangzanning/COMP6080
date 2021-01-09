@@ -1,0 +1,63 @@
+#rightPart {
+    width: 55%;
+    height: 100%;
+}
+
+#content {
+    padding: 20px;
+    width: 850px;
+    height: 560px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.05);
+}
+
+#rightPart {
+    margin: auto;
+    width: 45%;
+    height: 100%;
+}
+
+img {
+    width: 400px;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 40px;
+}
+
+.price {
+    color: darkgray;
+    margin-bottom: 25px;
+}
+
+.comment {
+    padding-top: 10px;
+}
+
+.eachComment {
+    margin: 10px 0 10px 0;
+}
+
+.bottom {
+    margin: 15px;
+}
+
+button {
+    font-size: 20px;
+    margin: 10px;
+    background-color: white;
+    border: white
+}
+
+.cart {
+    border: white;
+    background-color: beige;
+    height: 30px;
+}
+
+.circle {
+    height: 50px;
+
+}

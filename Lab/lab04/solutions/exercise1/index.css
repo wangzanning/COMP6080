@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    background-color: #faf8ef;
+    min-width: 800px;
+}
+
+h2 {
+    font-size: 48pt;
+    color: #776e65;
+}
+
+button {
+    background-color: #8f7a66;
+    color: #f9f6f2;
+    padding: 10px 20px;
+    font-size: 20pt;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#background {
+    background-color: #faf8ef;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.board {
+    background-color: #bbada0;
+    border-radius: 10px;
+    overflow: auto;
+    display: flex;
+}
+
+.overlay {
+    background-color: #e7e1dbab;
+    height: 745px;
+    width: 730px;
+    border-radius: 10px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.board .board-col:last-child {
+    margin-right: 18px;
+}
+
+.board .board-col .tile {
+    width: 160px;
+    height: 160px;
+    border-radius: 5px;
+    margin-top: 21px;
+    margin-left: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60pt; 
+    font-weight: bold;
+}
+
+.board .board-col .tile:last-child {
+    margin-bottom: 21px;
+}
+
+.board .board-col .empty {
+    background-color: #cdc1b4;
+}
+
+.board .board-col .style-2 {
+    background-color: #eee4da;
+    color: #776e65;
+}
+
+.board .board-col .style-4 {
+    background-color: #ede0c8;
+    color: #776e65;
+}
+
+.board .board-col .style-8 {
+    background-color: #f2b179;
+    color: #f9f6f2;
+}
+
+.board .board-col .style-16 {
+    background-color: #f59563;
+    color: #f9f6f2;
+}
+
+.board .board-col .style-32 {
+    background-color: #f67c5f;
+    color: #f9f6f2;
+}
+
+.board .board-col .style-64 {
+    background-color: #f65e3b;
+    color: #f9f6f2;
+}
+
+.board .board-col .style-128 {
+    background-color: #edcf72;
+    color: #f9f6f2;
+}
+
+.board .board-col .style-256 {
+    background-color: #edcc61;
+    color: #f9f6f2; 
+}
+
+.board .board-col .style-512 {
+    background-color: #edc850;
+    color: #f9f6f2;
+}
+
+.board .board-col .style-1024 {
+    background-color: #edc53f;
+    color: #f9f6f2;
+    font-size: 48pt; 
+}
+
+.board .board-col .style-2048 {
+    background-color: #edc22e;
+    color: #f9f6f2; 
+    font-size: 48pt;  
+}

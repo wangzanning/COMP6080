@@ -1,0 +1,873 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "BigBrain CRUD Server",
+        "description": "Server that powers the BigBrain frontend",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "tags": [
+        {
+            "name": "Admin Auth",
+            "description": "Managing admin authentication and authorisation"
+        },
+        {
+            "name": "Admin Quiz Management",
+            "description": "Managing quizzes"
+        },
+        {
+            "name": "Player",
+            "description": "Player capabilities"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "JWT"
+            }
+        },
+        "schemas": {
+            "AuthToken": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string",
+                        "description": "Authorization Bearer Token"
+                    }
+                }
+            }
+        },
+        "fields": {
+            "Email": {
+                "type": "string",
+                "example": "hayden@unsw.edu.au",
+                "description": "Email address of the admin attempting to login"
+            },
+            "Password": {
+                "type": "string",
+                "description": "Password of the admin attempting to login",
+                "example": "adummypassword"
+            },
+            "Admin": {
+                "type": "string",
+                "description": "Name (single or full name) of the admin registering",
+                "example": "Harry Jenkins"
+            },
+            "QuizName": {
+                "type": "string",
+                "description": "Name of the quiz",
+                "example": "My first quiz"
+            },
+            "QuizThumbnail": {
+                "type": "string",
+                "description": "Thumbnail image of the quiz - stored as base64. You will get out what you put in.",
+                "example": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+            },
+            "QuizId": {
+                "type": "number",
+                "description": "ID of the quiz",
+                "example": 56513315
+            },
+            "QuizCreatedAt": {
+                "type": "string",
+                "description": "Javascript ISO string of when it was created",
+                "example": "2020-10-31T14:45:21.077Z"
+            },
+            "PlayerStarted": {
+                "type": "boolean",
+                "description": "True if the game has started, false otherwise",
+                "example": true
+            },
+            "SessionIsoTimeLastQuestionStarted": {
+                "nullable": true,
+                "type": "string",
+                "description": "Javascript ISO string of when the most recent question timer was started",
+                "example": "2020-10-31T14:45:21.077Z"
+            },
+            "QuizOwner": {
+                "type": "string",
+                "example": "shrey@unsw.edu.au",
+                "description": "Email address of the owner of the quiz"
+            },
+            "QuizActive": {
+                "type": "number",
+                "description": "The ID of the active session for this quiz. If no ID is present, it's null",
+                "nullable": true,
+                "example": null
+            },
+            "QuizInactiveSessions": {
+                "type": "array",
+                "description": "IDs of all previously active (but no longer active) sessions",
+                "items": {
+                    "type": "number",
+                    "example": 4545546
+                }
+            },
+            "QuizQuestions": {
+                "type": "array",
+                "description": "List of all quiz questions",
+                "items": {
+                    "type": "object"
+                }
+            },
+            "PlayerName": {
+                "type": "string",
+                "description": "Name of the player",
+                "example": "Hayden Smith"
+            },
+            "PlayerAnswers": {
+                "type": "array",
+                "description": "IDs of the particular answer",
+                "items": {
+                    "type": "integer"
+                }
+            },
+            "SessionActive": {
+                "type": "boolean",
+                "description": "Whether or not the session is currently active",
+                "example": false
+            },
+            "SessionAnswerAvailable": {
+                "type": "boolean",
+                "description": "Whether if, for the current question the session is up to, the answers are available",
+                "example": false
+            },
+            "SessionPosition": {
+                "type": "number",
+                "description": "The question that the current session is up to (0 = first question)",
+                "example": 2
+            },
+            "SessionPlayers": {
+                "type": "array",
+                "description": "A list of all player names in this session",
+                "items": {
+                    "type": "string",
+                    "example": "Hayden"
+                }
+            },
+            "AnswerIds": {
+                "type": "array",
+                "description": "ID of the answer",
+                "items": {
+                    "type": "number",
+                    "example": 56513315
+                }
+            },
+            "AnswerCorrect": {
+                "type": "boolean",
+                "description": "Whether or not the player got this answer correct",
+                "example": false
+            },
+            "AnsweredAt": {
+                "nullable": true,
+                "type": "string",
+                "description": "Javascript ISO string of when the question was most recently answered",
+                "example": "2020-10-31T14:45:21.077Z"
+            },
+            "QuestionStartedAt": {
+                "nullable": true,
+                "type": "string",
+                "description": "Javascript ISO string of when the question was started for all users",
+                "example": "2020-10-31T14:45:21.077Z"
+            }
+        },
+        "parameters": {
+            "AuthRegisterBody": {
+                "name": "Register info",
+                "in": "body",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "email": {
+                            "$ref": "#/components/fields/Email"
+                        },
+                        "password": {
+                            "$ref": "#/components/fields/Password"
+                        },
+                        "name": {
+                            "$ref": "#/components/fields/Admin"
+                        }
+                    }
+                }
+            },
+            "AuthLoginBody": {
+                "name": "Login info",
+                "in": "body",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "email": {
+                            "$ref": "#/components/fields/Email"
+                        },
+                        "password": {
+                            "$ref": "#/components/fields/Password"
+                        }
+                    }
+                }
+            },
+            "AdminQuizGetAll": {
+                "in": "body",
+                "schema": {
+                    "type": "object",
+                    "properties": {}
+                }
+            },
+            "AdminQuizNew": {
+                "name": "Quiz info",
+                "in": "body",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "$ref": "#/components/fields/QuizName"
+                        }
+                    }
+                }
+            },
+            "Authorization": {
+                "name": "Authorization",
+                "in": "header",
+                "schema": {
+                    "type": "string",
+                    "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhheWRlbkB1bnN3LmVkdS5hdSIsImlhdCI6MTYwMzk0MzIzMH0.b37PfwlcH_cue6yhgvDt2IiNvhRACf79hTNtacYB94Q"
+                },
+                "required": true,
+                "description": "Bearer [token]"
+            },
+            "QuizIdQuery": {
+                "in": "path",
+                "name": "quizid",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1
+                },
+                "example": 312894,
+                "description": "ID of the quiz"
+            },
+            "SessionIdQuery": {
+                "in": "path",
+                "name": "sessionid",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1
+                },
+                "example": 312894,
+                "description": "ID of the quiz session"
+            },
+            "AdminQuizPut": {
+                "name": "List of questions",
+                "description": "A list of question objects - schema determined by client",
+                "in": "body",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "questions": {
+                            "$ref": "#/components/fields/QuizQuestions"
+                        },
+                        "name": {
+                            "$ref": "#/components/fields/QuizName"
+                        },
+                        "thumbnail": {
+                            "$ref": "#/components/fields/QuizThumbnail"
+                        }
+                    }
+                }
+            },
+            "PlayerJoinBody": {
+                "name": "Body for joining as a player",
+                "description": "Items needed to join a session as a player",
+                "in": "body",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "$ref": "#/components/fields/PlayerName"
+                        }
+                    }
+                }
+            },
+            "PlayerIdQuery": {
+                "in": "path",
+                "name": "playerid",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1
+                },
+                "example": 312894,
+                "description": "ID of the player in the current quiz session"
+            },
+            "PlayerAnswers": {
+                "name": "Answer IDs",
+                "description": "Player chosen answer IDs for a particular question",
+                "in": "body",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "answerIds": {
+                            "$ref": "#/components/fields/PlayerAnswers"
+                        }
+                    }
+                }  
+            }
+        },
+        "responses": {
+            "200": {
+                "Token": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "token": {
+                                "type": "string",
+                                "description": "JWT Token to provide authorisation",
+                                "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhheWRlbkB1bnN3LmVkdS5hdSIsImlhdCI6MTYwMzk0MzIzMH0.b37PfwlcH_cue6yhgvDt2IiNvhRACf79hTNtacYB94Q"
+                            }
+                        }
+                    }
+                },
+                "Empty": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                "AdminQuizGetAll": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "quizzes": {
+                                "type": "array",
+                                "description": "List of all quizzes",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "$ref": "#/components/fields/QuizId"
+                                        },
+                                        "createdAt": {
+                                            "$ref": "#/components/fields/QuizCreatedAt" 
+                                        },
+                                        "name": {
+                                            "$ref": "#/components/fields/QuizName"
+                                        },
+                                        "thumbnail": {
+                                            "$ref": "#/components/fields/QuizThumbnail"
+                                        },
+                                        "owner": {
+                                            "$ref": "#/components/fields/QuizOwner"
+                                        },
+                                        "active": {
+                                            "$ref": "#/components/fields/QuizActive"
+                                        },
+                                        "oldSessions": {
+                                            "$ref": "#/components/fields/QuizInactiveSessions"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "AdminQuizNew": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                        }
+                    }
+                },                
+                "AdminQuizGet": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "questions": {
+                                "$ref": "#/components/fields/QuizQuestions"
+                            },
+                            "createdAt": {
+                                "$ref": "#/components/fields/QuizCreatedAt" 
+                            },
+                            "name": {
+                                "$ref": "#/components/fields/QuizName"
+                            },
+                            "thumbnail": {
+                                "$ref": "#/components/fields/QuizThumbnail"
+                            },
+                            "owner": {
+                                "$ref": "#/components/fields/QuizOwner"
+                            },
+                            "active": {
+                                "$ref": "#/components/fields/QuizActive"
+                            },
+                            "oldSessions": {
+                                "$ref": "#/components/fields/QuizInactiveSessions"
+                            }
+                        }
+                    }
+                },
+                "SessionResults": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "name": {
+                                    "$ref": "#/components/fields/PlayerName"
+                                },
+                                "answers": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "answerIds": {
+                                                "$ref": "#/components/fields/AnswerIds"
+                                            },
+                                            "correct": {
+                                                "$ref": "#/components/fields/AnswerCorrect"
+                                            },
+                                            "answeredAt": {
+                                                "$ref": "#/components/fields/AnsweredAt"  
+                                            },
+                                            "questionStartedAt": {
+                                                "$ref": "#/components/fields/QuestionStartedAt"  
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "PlayerResults": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "answerIds": {
+                                    "$ref": "#/components/fields/AnswerIds"
+                                },
+                                "correct": {
+                                    "$ref": "#/components/fields/AnswerCorrect"
+                                },
+                                "answeredAt": {
+                                    "$ref": "#/components/fields/AnsweredAt"  
+                                },
+                                "questionStartedAt": {
+                                    "$ref": "#/components/fields/QuestionStartedAt"  
+                                }
+                            }
+                        }
+                    }
+                },
+                "SessionStatus": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "results": {
+                                "type": "object",
+                                "properties": {
+                                    "active": {
+                                        "$ref": "#/components/fields/SessionActive"
+                                    },
+                                    "answerAvailable": {
+                                        "$ref": "#/components/fields/SessionAnswerAvailable" 
+                                    },
+                                    "isoTimeLastQuestionStarted": {
+                                        "$ref": "#/components/fields/SessionIsoTimeLastQuestionStarted" 
+                                    },
+                                    "position": {
+                                        "$ref": "#/components/fields/SessionPosition"
+                                    },
+                                    "questions": {
+                                        "$ref": "#/components/fields/QuizQuestions"
+                                    },
+                                    "numQuestions": {
+                                        "$ref": "#/components/fields/QuizNumQuestions"
+                                    },
+                                    "players": {
+                                        "$ref": "#/components/fields/SessionPlayers"
+                                    }
+                                }
+                            }
+                        }
+                    }  
+                },
+                "PlayerId": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "playerId": {
+                                "type": "integer",
+                                "description": "ID of the player in this session",
+                                "example": 2389498
+                            }
+                        }
+                    }
+                },
+                "PlayerStatus" : {
+                    "description": "OK",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "started": {
+                                "$ref": "#/components/fields/PlayerStarted" 
+                            }
+                        }
+                    }
+                },
+                "PlayerQuestion": {
+                    "description": "OK - results of your customer.js 'quizQuestionPublicReturn', along with time that the question started!",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "isoTimeLastQuestionStarted": {
+                                "$ref": "#/components/fields/SessionIsoTimeLastQuestionStarted" 
+                            }
+                        }
+                    }
+                },
+                "PlayerAnswers": {
+                    "description": "Correct answer IDs for a particular question",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "answerIds": {
+                                "$ref": "#/components/fields/PlayerAnswers"
+                            }
+                        }
+                    }
+                },
+                "PlayerAnswersAll": {
+                    "description": "All answer IDs for a particular question",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "answerIds": {
+                                "$ref": "#/components/fields/PlayerAnswers"
+                            }
+                        }
+                    }
+                }
+            },
+            "400": {
+                "description": "Bad Input",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "type": "string",
+                            "description": "Error message returned from server",
+                            "example": "Invalid input"
+                        }
+                    }
+                }
+            },
+            "403": {
+                "description": "Forbidden",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "error": {
+                            "type": "string",
+                            "description": "Error message returned from server",
+                            "example": "Invalid Token"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/admin/auth/register": {
+            "post": {
+                "summary": "Send registration request for someone to join BigBrain as an admin",
+                "tags": [ "Admin Auth" ],
+                "parameters": [ { "$ref": "#/components/parameters/AuthRegisterBody" } ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/Token" },
+                    "400": { "$ref": "#/components/responses/400" }
+                }
+            }
+        },
+        "/admin/auth/login": {
+            "post": {
+                "summary": "Given correct admin credentials, return an authorised access token to make subsequent admin calls",
+                "tags": [ "Admin Auth" ],
+                "parameters": [ { "$ref": "#/components/parameters/AuthLoginBody" } ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/Token" },
+                    "400": { "$ref": "#/components/responses/400" }
+                }
+            }
+        },
+        "/admin/auth/logout": {
+            "post": {
+                "summary": "Invalid a particular authorised token",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Auth" ],
+                "parameters": [ { "$ref": "#/components/parameters/Authorization" } ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/Empty" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            }
+        },
+        "/admin/quiz": {
+            "get": {
+                "summary": "Get a list of the meta-data for all BigBrain quizzes",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/AdminQuizGetAll" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            }
+        },
+        "/admin/quiz/new": {
+            "post": {
+                "summary": "Create a new empty BigBrain quiz",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" },
+                    { "$ref": "#/components/parameters/AdminQuizNew" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/AdminQuizNew" },
+                    "400": { "$ref": "#/components/responses/400" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            }
+        },
+        "/admin/quiz/{quizid}": {
+            "get": {
+                "summary": "Collect all of the data pertaining to a particular quiz of BigBrain",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" },
+                    { "$ref": "#/components/parameters/QuizIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/AdminQuizGet" },
+                    "400": { "$ref": "#/components/responses/400" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            },
+            "put": {
+                "summary": "Update all of the details of a particular quiz of BigBrain",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" },
+                    { "$ref": "#/components/parameters/QuizIdQuery" },
+                    { "$ref": "#/components/parameters/AdminQuizPut" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/Empty" },
+                    "400": { "$ref": "#/components/responses/400" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            },
+            "delete": {
+                "summary": "Delete a particular game of Big Brain",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" },
+                    { "$ref": "#/components/parameters/QuizIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/Empty" },
+                    "400": { "$ref": "#/components/responses/400" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            }
+        },
+        "/admin/quiz/{quizid}/start": {
+            "post": {
+                "summary": "Start a new session/game for a BigBrain quiz",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" },
+                    { "$ref": "#/components/parameters/QuizIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/Empty" },
+                    "400": { "$ref": "#/components/responses/400" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            }
+        },
+        "/admin/quiz/{quizid}/advance": {
+            "post": {
+                "summary": "Advance the game on to the next question",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" },
+                    { "$ref": "#/components/parameters/QuizIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/Empty" },
+                    "400": { "$ref": "#/components/responses/400" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            }
+        },
+        "/admin/quiz/{quizid}/end": {
+            "post": {
+                "summary": "End the active session/game for a BigBrain quiz",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" },
+                    { "$ref": "#/components/parameters/QuizIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/Empty" },
+                    "400": { "$ref": "#/components/responses/400" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            }
+        },
+        "/admin/session/{sessionid}/status": {
+            "get": {
+                "summary": "Get the current status for a quiz session",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" },
+                    { "$ref": "#/components/parameters/SessionIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/SessionStatus" },
+                    "400": { "$ref": "#/components/responses/400" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            }
+        },
+        "/admin/session/{sessionid}/results": {
+            "get": {
+                "summary": "Get the results for a quiz session and what people's scores were",
+                "security": [{ "bearerAuth": [] }],
+                "tags": [ "Admin Quiz Management" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/Authorization" },
+                    { "$ref": "#/components/parameters/SessionIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/SessionResults" },
+                    "400": { "$ref": "#/components/responses/400" },
+                    "403": { "$ref": "#/components/responses/403" }
+                }
+            }
+        },
+        "/play/join/{sessionid}": {
+            "post": {
+                "summary": "Join an active session as a new player",
+                "tags": [ "Player" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/SessionIdQuery" },
+                    { "$ref": "#/components/parameters/PlayerJoinBody" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/PlayerId" },
+                    "400": { "$ref": "#/components/responses/400" }
+                }
+            }
+        },
+        "/play/{playerid}/status": {
+            "get": {
+                "summary": "For the current session, the player can determine if it's started or not",
+                "tags": [ "Player" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/PlayerIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/PlayerStatus" },
+                    "400": { "$ref": "#/components/responses/400" }
+                }
+            }
+        },
+        "/play/{playerid}/question": {
+            "get": {
+                "summary": "For the current question that session is up to, this gets the details of the question",
+                "tags": [ "Player" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/PlayerIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/PlayerQuestion" },
+                    "400": { "$ref": "#/components/responses/400" }
+                }
+            }
+        },
+        "/play/{playerid}/answer": {
+            "get": {
+                "summary": "Once the question timer is finished, returns the correct answer",
+                "tags": [ "Player" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/PlayerIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/PlayerAnswersAll" },
+                    "400": { "$ref": "#/components/responses/400" }
+                }
+            },
+            "put": {
+                "summary": "For the current question that the session is up to, this allows the player to submit their answer",
+                "tags": [ "Player" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/PlayerIdQuery" },
+                    { "$ref": "#/components/parameters/PlayerAnswers" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/Empty" },
+                    "400": { "$ref": "#/components/responses/400" }
+                }
+            }
+        },
+        "/play/{playerid}/results": {
+            "get": {
+                "summary": "Once a session has ended, this allows players to collect the results of their performance, benchmarked against others",
+                "tags": [ "Player" ],
+                "parameters": [
+                    { "$ref": "#/components/parameters/PlayerIdQuery" }
+                ],
+                "responses": {
+                    "200": { "$ref": "#/components/responses/200/PlayerResults" },
+                    "400": { "$ref": "#/components/responses/400" }
+                }
+            }
+        }
+    }
+}

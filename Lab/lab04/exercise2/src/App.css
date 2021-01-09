@@ -1,0 +1,29 @@
+/*
+z5224151  ZANNING WANG
+2020.09.27  Sunday
+Lab04-exercise2
+*/
+/*set the container with grid*/
+.container {
+  text-align: center;
+  display: grid;
+  height: 787px;
+  width: 787px;
+  padding: 20px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px 20px;
+  background-color: rgb(179,163,150);
+  border-radius: 10px;
+}
+
+/*set the attribute for all color box*/
+.figure-box {
+  font-size: 80px;
+  text-align: center;
+  padding-top: 48px;
+  font-family: "Arial";
+  font-weight: 800;
+  border-radius: 10px;
+  background-color: rgb(196,185,171);
+}

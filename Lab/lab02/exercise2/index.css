@@ -1,0 +1,79 @@
+/*
+z5224151	ZANNING WANG
+2020.09.21 Monday
+Lab02-exercise2
+*/
+
+.container {
+	width: 475px;
+	height: 1953px;
+
+}
+
+/*set the apperance of overlap*/
+.box-container-overlap {
+	background-color: rgb(240,240,240);
+	width: 400px;
+	padding: 25px;
+	position: relative;
+	font-size: 18px;
+	bottom: 40px;
+	left: 25px;
+}
+
+/*set the apperance of each box*/
+.box-container {
+	background-color: rgb(240,240,240);
+	width: 400px;
+	padding: 30px;
+	margin: 30px;
+}
+
+/*set the apperance of "staff,employee..."*/
+h2 {
+	font-weight: 1200;
+	font-size: 30px;
+	width: 100%;
+	margin-left: 10px;
+	margin-top: 110px;
+}
+
+/*set the apperance of the title*/
+h1 {
+	font-family: "sans-serif";
+	font-weight: 800;
+}
+
+/*set the apperance of content*/
+p.content {
+	font-family: "sans-serif";
+	font-weight: 400;
+}
+
+/*set the apperance of learn more in first box""*/
+p#more {
+	margin-top: 70px;
+	margin-right: 10px;
+	font-weight: 800;
+	text-align: right;
+}
+
+/*set the apperance of proverance*/
+p.proverance{
+	margin-top: 30px;
+	margin-right: 10px;
+	font-weight: 800;
+	text-align: right;
+	color: rgb(170,170,170);
+}
+
+/*set the apperance of href*/
+a {
+	text-decoration: none;
+	color: rgb(1,1,1);
+}
+
+img {
+	width: 98%;
+	margin: 8px;
+}

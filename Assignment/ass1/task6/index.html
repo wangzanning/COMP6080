@@ -1,0 +1,74 @@
+<!-- 
+z5224151	ZANNING WANG
+2020.09.30	Wednesday	
+Assignment01-task6 
+ -->
+
+ <!DOCTYPE html>
+ <html>
+	 <head>
+	 	 <title>Assignment-task6</title>
+		 <script type="text/javascript" src="index.js" ></script>
+	 </head>
+	 <body>
+	 	<!-- input box -->
+		<div id="input">
+			<form name="formbox">
+				<fieldset>
+   					<h3>The hint of the Input will disappear until your Input is correct.</h3>
+	               	<table border="1">
+	               		<tr>
+							<td>First Name </td>
+							<td>
+								<input type="text" name="fname" size="30" oninput="checkFirstName()"><br>
+							</td>
+						</tr>
+						<tr>
+							<td>Last Name </td>
+							<td>
+								<input type="text" name="lname" size="30" oninput="checkLastName()"><br>
+							</td>
+						</tr>
+						<tr>
+							<td>Date of brith </td>
+							<td>
+								<input type="text" name="datebirth" size="30" oninput="checkDate()" ><br>
+							</td>
+						</tr>
+						<tr>
+							<td>Favorite animals </td>
+							<td>
+								<select name="animals" onmousedown="printResult()">
+									<option value="Dog" selected>Dog</option>
+									<option value="Puppy">Puppy</option>
+								</select><br>
+							</td>
+						</tr>						
+						<tr>
+							<td>Cities lived in </td>
+							<td>
+								<span id="cities" onclick="printResult()">
+									<input type="checkbox" name="cities" value="Sydney">Sydney<br>
+									<input type="checkbox" name="cities" value="Melbourne">Melbourne<br>
+									<input type="checkbox" name="cities" value="Adelaide">Adelaide<br>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+				<!-- reset the choice -->
+				<br>
+				<input type="reset" name="remove-button" value="Remove" onclick="clearBox()">
+			</form>
+			<br>
+		</div>
+		<!-- output box -->
+		<div id="output">
+			<form>
+				<textarea id="outputText" rows="10" cols="40">
+					Welcome Type!
+				</textarea>
+			</form>
+		</div>
+	 </body>
+ </html>

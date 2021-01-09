@@ -1,0 +1,127 @@
+/*
+z5224151	ZANNING WANG
+2020.09.28	Monday
+Assignment01-task4 
+*/
+
+.container {
+	width: 1283px;
+	height: 699px;
+	background-color: rgb(238,236,235);
+	padding: 70px;
+}
+
+* {
+	font-family: "Arial";
+}
+
+/*set the font of the top part content*/
+h1,p#content-top {
+	font-weight: 400;
+	font-size: 33px;
+}
+
+/*set the apperance of the little logo*/
+svg {
+	height: 30px;
+	width: 30px;
+	margin: 15px;
+	fill: currentColor;
+	color: rgb(0,113,1);
+}
+
+span.subtitle {
+	font-size: 20px;
+	position: relative;
+	top: -23px;
+}
+
+/*set hte detail of each box*/
+.subtitle-box {
+	color: rgb(0,113,1);
+}
+
+#seperate-line-short {
+	width: 40px;
+	height: 1px;
+	border-top:rgb(1,1,1) solid 1px;
+	align-items: left;
+}
+
+#bottom-part {
+	display: flex;
+	flex-direction: row;
+}
+
+.content-box {
+	background-color: rgb(255,255,255);
+	margin: 5px;
+	padding: 5px;
+	width: 360px;
+	height: 420px;
+}
+
+.seperate-line-shadow {
+	width: 360px;
+	height: 1px;
+	border-color: rgb(1,1,1);
+	box-shadow: 5px 5px 5px #888888;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.content {
+	text-align: center;
+
+}
+
+/*the first line of content of the box*/
+span.first-content {
+	font-weight: 400;
+	font-size: 20px;
+	margin-top: 25px;
+}
+
+span.figure {
+	font-weight: 400;
+	font-size: 37px;
+	position: relative;
+	top: 10px;
+}
+
+/*the second line of content of the box*/
+p.second-content {
+	font-size: 27px;
+	padding:  5px 15px 5px 15px;
+	
+}
+
+/*the thrid line of content of the box*/
+p.third-content {
+	color: rgb(190,191,190);
+	font-size: 13px;
+}
+
+.find-box {
+	width: 200px;
+	height: 20px;
+	background-color: rgb(0,113,1); 
+	color: rgb(255,255,255);
+	margin: auto;
+	padding: 5px;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*set hover animaton*/
+.find-box:hover {
+	background-color: rgb(1,1,1);		
+}
+
+.under-figure {
+	margin-top:70px;
+}
+
+

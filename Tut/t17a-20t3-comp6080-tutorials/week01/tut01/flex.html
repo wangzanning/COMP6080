@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Box</title>
+    <style>
+      main {
+        width: 500px;
+        height: 200px;
+        border: 1px solid black;
+        display: flex;
+      }
+      
+      .yellow-green-blue {
+        background-color: blue;
+        flex: 6;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .red {
+        background-color: red;
+        flex: 2;
+      }
+      
+      .green {
+        flex: 1;
+        background-color: green;
+      }
+      
+      .yellow-blue {
+        flex: 2;
+        background-color: yellow;
+        display: flex;
+      }
+      
+      .yellow {
+        background-color: yellow;
+        flex: 2;
+      }
+      
+      .blue {
+        background-color: blue;
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="yellow-green-blue">
+        <div class="green"></div>
+        <div class="yellow-blue">
+          <div class="yellow"></div>
+          <div class="blue"></div>
+        </div>
+      </div>
+      <div class="red"></div>
+    </main>
+  </body>
+</html>
+

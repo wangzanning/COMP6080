@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Form</title>
+</head>
+
+<body>
+    <form method="get">
+        <ul>
+            <li>
+                <label>
+                    First Name:
+                    <input name="firstName" type="text" id="firstName">
+                </label>
+            </li>
+            <li>
+                <label>
+                    Email:
+                    <input name="email" type="email" id="email">
+                </label>
+            </li>
+            <li>
+                <button type="submit" id="submit">Go!</button>
+            </li>
+        </ul>
+    </form>
+    <script type="text/javascript">
+        const firstName = document.getElementById("firstName");
+        const email = document.getElementById("email");
+        const submit = document.getElementById("submit");
+
+        submit.disabled = true;
+
+        const firstNameValid = () => /^[a-zA-Z]{2,20}$/.test(firstName.value);
+
+        const emailValid = () => /^.+\@.+\..+$/.test(email.value);
+
+        const handleSubmitButton = (_) => {
+            const isValid = () => firstNameValid() && emailValid();
+
+            submit.disabled = !isValid();
+        };
+
+        firstName.addEventListener('keyup', handleSubmitButton);
+        email.addEventListener('keyup', handleSubmitButton);
+
+        firstName.addEventListener('blur', (e) => {
+            if (!firstNameValid()) {
+                firstName.style.background = 'crimson';
+            }
+        });
+
+        email.addEventListener('blur', (e) => {
+            if (!emailValid()) {
+                email.style.background = 'crimson';
+            }
+        });
+
+        firstName.addEventListener('focus', _ => firstName.style.background = 'none');
+        email.addEventListener('focus', _ => email.style.background = 'none');
+    </script>
+</body>
+
+</html>

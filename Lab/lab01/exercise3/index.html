@@ -1,0 +1,134 @@
+<!-- 
+z5224151	ZANNING WANG
+2020.09.17 
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>lab01_exercise3</title>
+		<style type="text/css">
+			h1.title{
+				font-family: "Vendetta Light";
+				font-weight: 250;
+				font-size: 60px;
+				text-align: center;
+				line-height: 30%
+
+			}
+			h2.Subtitle{
+				font-family: "Georgia"
+				font-size: 40px;
+				color: rgb(115,111,110);
+				text-align: center;
+				line-height: 30%;
+			}
+			p.lorem_content{
+				font-family: "Quador Light"
+				font-size:40px;
+				text-align: center;
+				color: rgb(115,111,110);
+				
+			}
+			img.pictures{
+				width: 100%;
+				height: auto;
+				margin: 5px;
+			}
+			img.icon{
+				margin: 8px;
+				width: 50px;
+				height: 50px;
+
+			}
+			/*set the attribute for the seperate line*/
+			.seperate_line{
+				width: 200px;
+				height: 1px;
+				border-top: solid #ACC0D8 1px;
+				margin: auto;
+			}
+			.container{
+				width: 1896px;
+				height: 1073px;
+			}
+			/*build a box for text content*/
+			.content_container{
+				width: 50%;
+				height: 140px;
+				margin: auto;
+				justify-content: center;	
+			}
+			/*build a box for icon*/
+			.icon_container{
+				display: flex;
+				justify-content: center;
+			}
+			/*build a box for picture*/
+			.four_column_container{
+				width: 100%;
+				height: 600px;
+				display: flex;
+				justify-content: center;
+				flex-direction: row;
+				align-items: center;
+				margin: 8px;
+			}
+			/*build a box for each column to display pictures*/
+			.each_column{
+				height: 600px;
+				width: 300px;
+				margin: 8px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- title part -->
+			<h1 class="title">Florida Bungalow</h1>
+			<h2 class="Subtitle">MIAMI PROPER // FLORIDA</h2>
+			<!-- icon part -->
+			<div class="icon_container">
+				<img class="icon" src="assets/exercise_3_twitter_icon.png" alt="exercise_3_twitter_icon" />
+				<img class="icon" src="assets/exercise_3_pinterest_icon.png" alt="exercise_3_pinterest_icon" />
+				<img class="icon" src="assets/exercise_3_fb_icon.png" alt="exercise_3_fb_icon" />
+			</div>
+			<!-- seperate line -->
+			<div class="seperate_line"></div>
+			<!-- text part -->
+			<div class="content_container">
+				<p class="lorem_content">The final destination,Miami,Florida!</p>
+				<p class="lorem_content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+			</div>
+			<!-- pictures part -->
+			<div class="four_column_container">
+				<div class="each_column">
+					<img class="pictures" src="assets/exercise_3_img_0.jpg" alt="exercise_3_img_0" />
+					<img class="pictures" src="assets/exercise_3_img_1.jpg" alt="exercise_3_img_1" />
+				</div>
+				<div class="each_column">
+					<img class="pictures" src="assets/exercise_3_img_2.jpg" alt="exercise_3_img_2" />
+					<img class="pictures" src="assets/exercise_3_img_3.jpg" alt="exercise_3_img_3" />
+				</div>
+				<div class="each_column">
+					<img class="pictures" src="assets/exercise_3_img_4.jpg" alt="exercise_3_img_4" />
+					<img class="pictures" src="assets/exercise_3_img_5.jpg" alt="exercise_3_img_5" />
+				</div>
+				<div class="each_column">
+					<img class="pictures" src="assets/exercise_3_img_6.jpg" alt="exercise_3_img_6" />
+					<img class="pictures" src="assets/exercise_3_img_7.jpg" alt="exercise_3_img_7" />
+					<img class="pictures" src="assets/exercise_3_img_8.jpg" alt="exercise_3_img_8" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
+
+

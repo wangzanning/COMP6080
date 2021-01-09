@@ -1,0 +1,109 @@
+/*
+z5224151	ZANNING WANG
+2020.09.23 	Wednesday
+Lab02-exercise6
+*/
+
+.container {
+	height: 870px;
+	width: 1896px;
+}
+
+/*setup top part apperance and background*/
+.top-part {
+	background-image: url(assets/exercise_2_landing_page.jpg); 
+	background-size: 100%;
+	width: 100%;
+	height: 655px;
+	margin: 0px;
+}
+
+/*setup bottom part apperance*/
+.bottom-part {
+	background-color: rgb(251,205,2);
+	width: 100%;
+	height: 215px;
+	margin: 0px;
+}
+
+/*setup button apperance*/
+.explore-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(251,205,2);
+	color: rgb(1,1,1);
+	width: 320px;
+	height: 60px;
+	border-radius: 30px;
+	font-size: 25px;
+	margin-top: 50px;
+	margin-left: 200px;
+	text-decoration: none;
+}
+
+/*set the bottom part content, make it center in both direction*/
+.content-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+* {
+	font-family: "Helvetica";
+}
+
+img {
+	height: 26px;
+	width: 26px;
+	padding-top: 23px;
+	padding-left: 200px;
+}
+
+/*title content*/
+h1 {
+	color: rgb(255,255,255);
+	font-size: 70px;
+	padding-top: 70px;
+	padding-left: 200px;
+}
+
+span.top-content {
+	font-size: 18px;
+	color: rgb(255,255,255);
+	padding-top: 20px;
+}
+
+/*setup the apperance of href for "see what..."*/
+a.see{
+	font-size: 18px;
+	color: rgb(255,255,255);
+	padding-top: 20px;
+	text-decoration: none;
+}
+
+/*setup the apperance of href for "explore button"*/
+a.explore {
+	text-decoration: none;
+}
+
+/*setup the apperance of bottom content*/
+span.fee {
+	font-size: 70px;
+	font-family: "sans-serif";
+	font-weight: 800;
+	margin-top: 40px;
+	margin-right: 50px;
+}
+
+span#one {
+	font-size: 20px;
+	margin-left: -20px;
+}
+
+span.bottom-content {
+	font-size: 23px;
+	font-weight: 500;
+	margin-top: 65px;
+}
+

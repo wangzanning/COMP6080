@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Page</title>
+		<style type="text/css">
+			body { font-size: 20pt; }
+			.hide, #popup { display: none; }
+
+		</style>
+	</head>
+	<body>
+		<header id="header">
+			<a href="#" id="tabHome">Home</a> |
+			<a href="#" id="tabAbout">About</a> |
+			<a href="#" id="tabNews">News</a> |
+			<a href="#" id="tabArticles">Articles</a>
+		</header>
+
+		<div id="popup">
+			Email: <input type="text" /><br />
+			Name: <input type="text" /><br />
+			<button id="closePopup">Close</button>
+			<button>Submit</button>
+		</div>
+
+		<div id="page">
+			<div class="page" id="pageHome">This is the homepage</div>
+			<div class="page hide" id="pageAbout">This is the about page</div>
+			<div class="page hide" id="pageNews">This is the news page</div>
+			<div class="page hide" id="pageArticles">This is the articles page</div>
+		</div>
+
+		<footer id="footer"><a id="contactUs" href="#">Contact Us</a></footer>
+		<script type="text/javascript">
+			const tabs = ['Home', 'About', 'News', 'Articles'];
+			const setTab = name => {
+				document.getElementById(`tab${name}`).addEventListener('click', e => {
+					e.preventDefault();
+					tabs.map(tab => document.getElementById(`page${tab}`).style.display = 'none');
+					document.getElementById(`page${name}`).style.display = 'block';
+				});
+			}
+			tabs.map(setTab);
+			document.getElementById('contactUs').addEventListener('click', e => {
+				e.preventDefault();
+				document.getElementById('header').style.display = 'none';
+				document.getElementById('page').style.display = 'none';
+				document.getElementById('footer').style.display = 'none';
+				document.getElementById('popup').style.display = 'block';
+				document.getElementById('popup').style.display = 'block';
+			});
+			document.getElementById('closePopup').addEventListener('click', e => {
+				e.preventDefault();
+				document.getElementById('header').style.display = 'block';
+				document.getElementById('page').style.display = 'block';
+				document.getElementById('footer').style.display = 'block';
+				document.getElementById('popup').style.display = 'none';
+			});
+				
+		</script>
+	</body>
+</html>

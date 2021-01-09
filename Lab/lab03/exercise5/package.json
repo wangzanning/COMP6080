@@ -1,0 +1,16 @@
+{
+  "name": "exercise5",
+  "version": "1.0.0",
+  "main": "birth-day.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.0",
+    "momentjs": "^2.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

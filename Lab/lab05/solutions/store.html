@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            #container {
+                width: 400px;
+                height: 300px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+            }
+            .box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+                height: 33%;
+            }
+        </style>
+        <title>Store.html</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            const container = document.createElement('div');
+            container.setAttribute('id', 'container')
+            container.innerText = 'Loading, Please wait'
+            document.body.appendChild(container)
+            const createElement = text => {
+                const box = document.createElement('div');
+                box.className = 'box';
+                box.innerText = text;
+                container.appendChild(box);
+                return box;
+            };
+
+            fetch('http://www.cse.unsw.edu.au/~cs6080/20T3/data/package.json')
+                .then(res => res.json())
+                .then(res => {
+                    localStorage.setItem('exercise5', JSON.stringify(res));
+                    container.innerText = '';
+                    renderItems(res);
+                })
+                .catch(e => {
+                    container.innerText = '';
+                    let jsonData = localStorage.getItem('exercise5');
+                    if(!jsonData) {
+                      displayMessage('No cached data. Please check your network');
+                      return;
+                    }
+                    renderItems(JSON.parse(jsonData));
+                    displayMessage('This data is not live');
+                });
+
+            const renderItems = res => {
+                const namebox = createElement('name');
+                const nameElement = createElement(res.name);
+                const reindeers = createElement('reindeers');
+                const numberElement = createElement(res.reindeers);
+                const primary = createElement('primary');
+                const primaryElement = createElement(res.primary);
+            };
+
+            const displayMessage = msg => {
+                const p = document.createElement('p');
+                p.innerText = msg;
+                document.body.appendChild(p);
+            };
+        </script>
+    </body>
+</html>

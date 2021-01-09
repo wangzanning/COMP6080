@@ -1,0 +1,109 @@
+<!-- 
+z5224151	ZANNING WANG
+2020.09.16 
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>lab01_exercise2</title>
+		<style type="text/css">	
+			h1 {
+				font-family: "Arial Light" !important;
+				font-size: 60px;
+				text-align: center;
+			}
+			* {
+				font-family: "sans-serif";
+			}
+			.seperate_line{
+				width: 95%;
+				height: 1px;
+				border-top: solid #ACC0D8 1px;
+				margin: 40px;
+				align-items: center;
+			}
+			.container{
+				width: 1895px;
+				height: 943px;
+				
+			}
+			/*build a box for each item in one row*/
+			.column_part{
+				display: flex;
+				flex-direction: row;
+
+			}
+			/*build a box for content in each item*/
+			.Sessions_part{
+				width: 943px;
+				display: flex;
+				margin: 20px;
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			h2.Session_title{
+				color: rgb(233,159,152);
+				text-align: center;
+				margin-inline-start: 250px;
+			}
+			h3.Session_content{
+				width: 850px;
+				text-align: center;
+				font-weight: 150;
+			}
+			h3.Middle_content{
+				margin: 40px;
+				width: 1800px;
+				text-align: center;
+				font-weight: 150;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="container">
+			<h1>Session Times</h1>
+			<div class="column_part">
+				<!-- seperate the webpage into three part, the first part is the content above seperate line -->
+				<div class="Sessions_part">
+					<h2 class="Session_title">Wednesday Training 8pm - 10pm</h2>
+					<h3 class="Session_content">On Wednesday evenings at 8pm, we run training sessions at 
+						<strong>Yellow Bridge <br>Gym.</strong>
+						<br>Attendance is mandatory for all team players. We start with warmups, drills and then play games using modified rules with a focus on specific skills.</h3>
+				</div>
+				<div class="Sessions_part">
+					<h2 class="Session_title">Saturday Session: 10am - 12am</h2>
+					<h3 class="Session_content">On Saturday mornings at 10am, we play competitive matches at 
+						<strong>Sandy Park.</strong><br>Warm-up begins at 10am, after which we play a full length match, starting at <br>10:30am.</h3>
+				</div>
+			</div>
+			<!-- add seperate line -->
+			<div class="seperate_line"></div>
+			<!-- second part :content between seperate line -->
+			<h3 class="Middle_content" >Registration for the season begins in August and grading sessions are held in September. Please register if you wish to attend and we will send invites to a grading session via email. Grading sessions are allocated based on previous experience.</h3>
+			<div class="seperate_line"></div>
+			<!-- three part content -->
+			<div class="column_part">
+				<div class="Sessions_part">
+					<h2 class="Session_title">New to Volleyball?</h2>
+					<h3 class="Session_content">Newcomers to volleyball are welcome to come to 
+						<strong>1 free trial</strong> training session before you commit by registration and pay your subscription.</h3>
+				</div>
+				<div class="Sessions_part">
+					<h2 class="Session_title">Seasoned player or complete newbie?</h2>
+					<h3 class="Session_content">All levels of players are welcome! However, your level of experience determines which team you will join for your <strong>first season:</strong></h3>
+					<li>
+						<strong>Know the rules and played before? </strong>Great, let us know which competition, region and division you have previously played in and we will match you with a suitable team.
+					</li>
+					<li>
+						<strong>New to the sport? </strong>
+						No worries! We run specialised training programs to get newcomers up to speed with the rules and skills of the game. We'll get you ready for your first season in a competitive environment.
+					</li>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
